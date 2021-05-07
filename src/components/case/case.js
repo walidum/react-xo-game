@@ -5,22 +5,19 @@ const Case = (props) => {
 
     const changeValue = () => {
         if (values[item] === 'X') {
-            const newVAlues = [...values];
-            newVAlues[item] = 'O'
-            setValues(newVAlues)
+            const newValues = [...values];
+            newValues[item] = 'O'
+            setValues(newValues)
         } else {
-            const newVAlues = [...values];
-            newVAlues[item] = 'X'
-            setValues(newVAlues)
+            const newValues = [...values];
+            newValues[item] = 'X'
+            setValues(newValues)
         }
-
     }
     return (
         <div onClick={changeValue}
              className={'g-case'}>
-            {values && values[item] && (
-                <span>{values[item]}</span>
-            )}
+            <span>{values[item]}</span>
         </div>
 
     )
