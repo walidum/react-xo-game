@@ -1,17 +1,22 @@
 import './case.css'
 
 const Case = (props) => {
-    const {setValues, values, item} = props
+    const {setValues, values, item, current, setCurrent} = props
 
     const changeValue = () => {
-        if (values[item] === 'X') {
-            const newValues = [...values];
-            newValues[item] = 'O'
-            setValues(newValues)
-        } else {
-            const newValues = [...values];
-            newValues[item] = 'X'
-            setValues(newValues)
+        if (!values[item]) {
+            if (current === 'X') {
+                const newValues = [...values];
+                newValues[item] = 'X'
+                setValues(newValues)
+                setCurrent('O')
+            }
+            if (current === 'O') {
+                const newValues = [...values];
+                newValues[item] = 'O'
+                setValues(newValues)
+                setCurrent('X')
+            }
         }
     }
     return (
