@@ -8,7 +8,8 @@ const Game = () => {
     const inittab = ['', '', '', '', '', '', '', '', '']
     const [values, setValues] = useState(inittab)
     const [current, setCurrent] = useState('X')
-
+    const [countX, setCountX] = useState(0)
+    const [countO, setCountO] = useState(0)
     useEffect(() => {
         checkWinner();
     }, [current])
@@ -25,6 +26,8 @@ const Game = () => {
             values[0] === winner && values[4] == winner && values[8] === winner ||
             values[2] === winner && values[4] == winner && values[6] === winner;
         if (iswinner) {
+            if (winner === 'X') setCountX(countX + 1)
+            else setCountO(countO + 1)
             Swal.fire(winner + ' IS THE WINNER', '', 'success')
                 .then(ok => {
                     if (ok.isConfirmed) {
@@ -59,6 +62,8 @@ const Game = () => {
             <div className={'g-head'}>
                 <span className={'text-1'}>
                     X-O GAME</span>
+                <span>X : {countX}</span>
+                <span>O : {countO}</span>
                 <span className={'text-2'}>
                     {current} Turn</span>
             </div>
