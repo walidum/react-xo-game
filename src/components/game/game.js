@@ -2,6 +2,7 @@ import './style.css'
 import {Card} from "@material-ui/core";
 import Case from "../case/case";
 import {useEffect, useState} from "react";
+import Swal from "sweetalert2";
 
 const Game = () => {
     const inittab = ['', '', '', '', '', '', '', '', '']
@@ -24,7 +25,12 @@ const Game = () => {
             values[0] === winner && values[4] == winner && values[8] === winner ||
             values[2] === winner && values[4] == winner && values[6] === winner;
         if (iswinner) {
-            alert(winner + ' a gagné ')
+            Swal.fire(winner + ' IS THE WINNER', '', 'success')
+                .then(ok => {
+                    if (ok.isConfirmed) {
+                        setValues(inittab)
+                    }
+                })
         }
     }
 
