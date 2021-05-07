@@ -31,7 +31,24 @@ const Game = () => {
                         setValues(inittab)
                     }
                 })
+        } else {
+            if (nowinner()) {
+                Swal.fire(' THIER IS NO WINNER', '', 'warning')
+                    .then(ok => {
+                        if (ok.isConfirmed) {
+                            setValues(inittab)
+                        }
+                    })
+            }
         }
+    }
+    const nowinner = () => {
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] === '') {
+                return false;
+            }
+        }
+        return true
     }
 
     return (
