@@ -1,5 +1,5 @@
 import './style.css'
-import {Card} from "@material-ui/core";
+import {Button, Card} from "@material-ui/core";
 import Case from "../case/case";
 import {useEffect, useState} from "react";
 import Swal from "sweetalert2";
@@ -50,7 +50,10 @@ const Game = () => {
         }
         return true
     }
-
+    const reset = () => {
+        setValues(inittab)
+        setCurrent('X')
+    }
     return (
         <div className={'g-container'}>
             <div className={'g-head'}>
@@ -91,6 +94,9 @@ const Game = () => {
                       setValues={setValues}/>
 
             </Card>
+            <Button onClick={reset} style={{marginTop: 20}} variant="contained" color="primary">
+                Reset
+            </Button>
         </div>
 
     )
