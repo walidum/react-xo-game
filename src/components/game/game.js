@@ -5,6 +5,7 @@ const Game = () => {
         <div className={'g-container'}>
 
         </div>
+
     )
 }
 export default Game
