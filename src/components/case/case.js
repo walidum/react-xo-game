@@ -1,18 +1,26 @@
 import './case.css'
-import {useState} from "react";
 
-const Case = () => {
-    const [value, setValue] =
-        useState('X')
+const Case = (props) => {
+    const {setValues, values, item} = props
+
     const changeValue = () => {
-        if (value === 'X')
-            setValue('O')
-        else setValue('X')
+        if (values[item] === 'X') {
+            const newVAlues = [...values];
+            newVAlues[item] = 'O'
+            setValues(newVAlues)
+        } else {
+            const newVAlues = [...values];
+            newVAlues[item] = 'X'
+            setValues(newVAlues)
+        }
+
     }
     return (
         <div onClick={changeValue}
              className={'g-case'}>
-            <span>{value}</span>
+            {values && values[item] && (
+                <span>{values[item]}</span>
+            )}
         </div>
 
     )

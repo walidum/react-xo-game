@@ -15,15 +15,15 @@ const Game = () => {
                     X Turn</span>
             </div>
             <Card className={'g-card'}>
-                <Case key={0} values={values} setValues={setValues}/>
-                <Case key={1} values={values} setValues={setValues}/>
-                <Case key={2} values={values} setValues={setValues}/>
-                <Case key={3} values={values} setValues={setValues}/>
-                <Case key={4} values={values} setValues={setValues}/>
-                <Case key={5} values={values} setValues={setValues}/>
-                <Case key={6} values={values} setValues={setValues}/>
-                <Case key={7} values={values} setValues={setValues}/>
-                <Case key={8} values={values} setValues={setValues}/>
+                <Case item={0} values={values} setValues={setValues}/>
+                <Case item={1} values={values} setValues={setValues}/>
+                <Case item={2} values={values} setValues={setValues}/>
+                <Case item={3} values={values} setValues={setValues}/>
+                <Case item={4} values={values} setValues={setValues}/>
+                <Case item={5} values={values} setValues={setValues}/>
+                <Case item={6} values={values} setValues={setValues}/>
+                <Case item={7} values={values} setValues={setValues}/>
+                <Case item={8} values={values} setValues={setValues}/>
 
             </Card>
         </div>
