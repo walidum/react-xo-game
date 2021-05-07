@@ -1,12 +1,33 @@
 import './style.css'
 import {Card} from "@material-ui/core";
 import Case from "../case/case";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Game = () => {
     const inittab = ['', '', '', '', '', '', '', '', '']
     const [values, setValues] = useState(inittab)
     const [current, setCurrent] = useState('X')
+
+    useEffect(() => {
+        checkWinner();
+    }, [current])
+
+    const checkWinner = () => {
+        const winner = current === 'X' ? 'O' : 'X';
+        const iswinner =
+            values[0] === winner && values[1] == winner && values[2] === winner ||
+            values[3] === winner && values[4] == winner && values[5] === winner ||
+            values[6] === winner && values[7] == winner && values[8] === winner ||
+            values[0] === winner && values[3] == winner && values[6] === winner ||
+            values[1] === winner && values[4] == winner && values[7] === winner ||
+            values[2] === winner && values[5] == winner && values[8] === winner ||
+            values[0] === winner && values[4] == winner && values[8] === winner ||
+            values[2] === winner && values[4] == winner && values[6] === winner;
+        if (iswinner) {
+            alert(winner + ' a gagné ')
+        }
+    }
+
     return (
         <div className={'g-container'}>
             <div className={'g-head'}>
