@@ -28,7 +28,6 @@ const Game = () => {
         if (iswinner) {
             if (winner === 'X') setCountX(countX + 1)
             else setCountO(countO + 1)
-            setCurrent(winner)
             Swal.fire({
                 title: winner + ' IS THE WINNER',
                 icon: 'success',
@@ -38,6 +37,7 @@ const Game = () => {
                 .then(ok => {
                     if (ok.isConfirmed) {
                         setValues(inittab)
+                        setCurrent(winner)
                     }
                 })
         } else {
